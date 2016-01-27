@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head lang="eng">
+    <title>JWT test</title>
+  </head>
+  <body ng-controller="MainCtrl as vm">
+    <h1>Get Random User</h1>
+    <div ng-hide="vm.user">
+      <form ng-submit='vm.login(vm.username, vm.password)'>
+        <label>Username: <input type="text" ng-model='vm.username' /></label><br />
+        <label>Password: <input type="password" ng-model='vm.password' /></label><br />
+        <button type="submit">Login</button>
+
+      </form>
+    </div>
+
+    <div ng-show="vm.user">
+      <h2>Welcome {{vm.username}}</h2>
+      <button ng-click="vm.logout()">Log Out</button>
+      <button ng-click="vm.getRandomUser()">Get User</button>
+      <pre ng-bind="vm.randomUser | json"></pre>
+    </div>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
